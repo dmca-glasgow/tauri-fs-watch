@@ -8,6 +8,10 @@
   "permissions": [
     "core:default",
     "shell:allow-open",
-    "fs:default"
+    "fs:default",
+    {
+      "identifier": "fs:allow-watch",
+      "allow": [{ "path": "**/*" }]
+    }
   ]
 }

@@ -2,10 +2,15 @@ import { useState } from "preact/hooks";
 import preactLogo from "./assets/preact.svg";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
+import { watchImmediate } from "@tauri-apps/plugin-fs";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
+
+  watchImmediate('/Users/staff/Work/tauri-fs-watch/README.md', (event) => {
+    console.log(event)
+  })
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
